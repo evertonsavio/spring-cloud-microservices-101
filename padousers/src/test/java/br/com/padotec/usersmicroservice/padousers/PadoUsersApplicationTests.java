@@ -1,4 +1,4 @@
-package br.com.padotec.usersmicroservice.PadoUsers;
+package br.com.padotec.usersmicroservice.padousers;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
