@@ -9,4 +9,6 @@ spring.application.name=discoveryservice
 eureka.client.register-with-eureka=false
 eureka.client.fetch-registry=false
 eureka.client.serviceUrl.defaultZone = "http://localhost:8010/eureka"
-```
+```  
+  
+![](./utils-docs/users.png)
