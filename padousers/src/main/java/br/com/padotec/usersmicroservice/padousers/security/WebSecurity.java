@@ -1,6 +1,8 @@
 package br.com.padotec.usersmicroservice.padousers.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -9,9 +11,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 
+    private Environment environment;
+
+    @Autowired
+    public WebSecurity(Environment environment) {
+        this.environment = environment;
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable(); //Bacause we are using JWT;
-        http.authorizeRequests().antMatchers("/users/**").permitAll(); //TEMPORALLY
+        http.authorizeRequests().antMatchers("/**").hasIpAddress(environment.getProperty("gateway.ip")); //TEMPORALLY
+        http.headers().frameOptions().disable(); //FOR H2 works here.
     }
 }
