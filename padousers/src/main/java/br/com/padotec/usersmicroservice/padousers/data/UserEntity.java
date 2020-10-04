@@ -49,8 +49,7 @@ public class UserEntity implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-
-
+    
     public String getEncryptedPassword() {
         return encryptedPassword;
     }

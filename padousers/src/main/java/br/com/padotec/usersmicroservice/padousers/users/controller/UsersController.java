@@ -1,6 +1,10 @@
 package br.com.padotec.usersmicroservice.padousers.users.controller;
 
 import br.com.padotec.usersmicroservice.padousers.models.UserModel;
+import br.com.padotec.usersmicroservice.padousers.services.UsersService;
+import br.com.padotec.usersmicroservice.padousers.shared.UserDto;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +18,9 @@ public class UsersController {
     @Autowired
     private Environment env;
 
+    @Autowired
+    UsersService usersService;
+
     @GetMapping("/status/check")
     public String status(){
         return "working" + "on Port" + env.getProperty("local.server.port");
@@ -21,6 +28,13 @@ public class UsersController {
 
     @PostMapping("/signup")
     public String createUser(@Valid @RequestBody UserModel userDetails){
-        return "Create user method --" + userDetails;
+
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+
+        UserDto userDto = modelMapper.map(userDetails, UserDto.class);
+        usersService.createUser(userDto);
+
+        return "Create user method ->";
     }
 }
