@@ -1,6 +1,6 @@
 package br.com.padotec.usersmicroservice.padousers.users.controller;
 
-import br.com.padotec.usersmicroservice.padousers.models.CreateUserModel;
+import br.com.padotec.usersmicroservice.padousers.models.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +20,7 @@ public class UsersController {
     }
 
     @PostMapping("/signup")
-    public String createUser(@Valid @RequestBody CreateUserModel userDetails){
+    public String createUser(@Valid @RequestBody UserModel userDetails){
         return "Create user method --" + userDetails;
     }
 }
