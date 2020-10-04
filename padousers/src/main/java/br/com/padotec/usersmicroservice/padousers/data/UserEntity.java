@@ -1,7 +1,6 @@
 package br.com.padotec.usersmicroservice.padousers.data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -11,7 +10,7 @@ public class UserEntity implements Serializable {
     private static final long serialVersionUID = -4631422745700177221L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
     @Column(nullable = false, unique = true, length = 120)
@@ -23,8 +22,8 @@ public class UserEntity implements Serializable {
     @Column(nullable = false, unique = true)
     private String encryptedPassword;
 
-    ///////////////////////////////////////////////////////////////////
-    /////////////////////GETTERS AND SETTERS///////////////////////////
+    /////////////////////////////////////////////////////////////////////////
+    ///////////////////////////GETTERS AND SETTERS///////////////////////////
 
     public long getId() {
         return id;
@@ -49,7 +48,7 @@ public class UserEntity implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     public String getEncryptedPassword() {
         return encryptedPassword;
     }

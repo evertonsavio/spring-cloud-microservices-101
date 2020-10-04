@@ -4,6 +4,7 @@ import br.com.padotec.usersmicroservice.padousers.data.UserEntity;
 import br.com.padotec.usersmicroservice.padousers.data.UsersRepository;
 import br.com.padotec.usersmicroservice.padousers.services.UsersService;
 import br.com.padotec.usersmicroservice.padousers.shared.UserDto;
+import org.apache.catalina.User;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.modelmapper.spi.MatchingStrategy;
@@ -33,10 +34,12 @@ public class UsersServiceImpl implements UsersService {
         UserEntity userEntity = modelMapper.map(userDetails, UserEntity.class);
 
         //TODO SpringSecurity
-        userEntity.setEncryptedPassword("TEST");
+        userEntity.setEncryptedPassword("TEST" + UUID.randomUUID().toString());
 
         usersRepository.save(userEntity);
 
-        return null;
+        UserDto returnValue = modelMapper.map(userEntity, UserDto.class);
+
+        return returnValue;
     }
 }
