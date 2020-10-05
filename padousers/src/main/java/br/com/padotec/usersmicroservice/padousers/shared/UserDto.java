@@ -6,7 +6,7 @@ public class UserDto implements Serializable {
 
     private static final long serialVersionUID = -3023001541707648777L;
 
-    private String userId;
+    private String userPublicId;
     private String email;
     private String password;
     private String encryptedPassword;
@@ -15,11 +15,11 @@ public class UserDto implements Serializable {
     /////////////////////////GETTERS AND SETTERS////////////////////////////
 
     public String getUserId() {
-        return userId;
+        return userPublicId;
     }
 
     public void setUserId(String userId) {
-        this.userId = userId;
+        this.userPublicId = userId;
     }
 
     public String getEmail() {

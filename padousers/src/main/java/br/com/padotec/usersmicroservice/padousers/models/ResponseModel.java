@@ -2,15 +2,15 @@ package br.com.padotec.usersmicroservice.padousers.models;
 
 public class ResponseModel {
 
-    private String userId;
+    private String userPublicId;
     private String email;
 
     public String getUserId() {
-        return userId;
+        return userPublicId;
     }
 
     public void setUserId(String userId) {
-        this.userId = userId;
+        this.userPublicId = userId;
     }
 
     public String getEmail() {
