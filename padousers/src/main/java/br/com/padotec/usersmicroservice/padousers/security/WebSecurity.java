@@ -36,7 +36,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     private AuthenticationFilter getAuthenticationFilter() throws Exception {
         AuthenticationFilter authenticationFilter = new AuthenticationFilter(usersService, environment, authenticationManager());
         //authenticationFilter.setAuthenticationManager(authenticationManager());
-    return authenticationFilter;
+        authenticationFilter.setFilterProcessesUrl("/users/login");
+        return authenticationFilter;
     }
 
     //Para spring saber qual servidor sera usado para carregar user details

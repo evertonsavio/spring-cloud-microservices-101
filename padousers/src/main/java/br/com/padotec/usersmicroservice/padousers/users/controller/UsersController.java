@@ -24,12 +24,12 @@ public class UsersController {
     @Autowired
     UsersService usersService;
 
-    @GetMapping("/status/check")
+    @GetMapping("/status")
     public String status(){
-        return "working" + "on Port" + env.getProperty("local.server.port");
+        return "Working " + "on Port = " + env.getProperty("local.server.port");
     }
 
-    @PostMapping
+    @PostMapping("/signup")
     public ResponseEntity<ResponseModel> createUser(@Valid @RequestBody UserModel userDetails){
 
         ModelMapper modelMapper = new ModelMapper();
@@ -41,6 +41,5 @@ public class UsersController {
         ResponseModel returnUser = modelMapper.map(createdUser, ResponseModel.class);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(returnUser);
-        //return new ResponseEntity(HttpStatus.CREATED);
     }
 }
