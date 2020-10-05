@@ -30,7 +30,7 @@ public class UsersController {
         return "working" + "on Port" + env.getProperty("local.server.port");
     }
 
-    @PostMapping("/signup")
+    @PostMapping
     public ResponseEntity<ResponseModel> createUser(@Valid @RequestBody UserModel userDetails){
 
         ModelMapper modelMapper = new ModelMapper();
