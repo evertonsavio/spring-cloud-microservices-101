@@ -21,7 +21,15 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable(); //Bacause we are using JWT;
-        http.authorizeRequests().antMatchers("/**").hasIpAddress(environment.getProperty("gateway.ip")); //TEMPORALLY
+        http.authorizeRequests().antMatchers("/**").hasIpAddress(environment.getProperty("gateway.ip")) //TEMPORALLY
+        .and().addFilter(getAuthenticationFilter());
         http.headers().frameOptions().disable(); //FOR H2 works here.
     }
+
+    private AuthenticationFilter getAuthenticationFilter() throws Exception {
+    AuthenticationFilter authenticationFilter = new AuthenticationFilter();
+    authenticationFilter.setAuthenticationManager(authenticationManager());
+    return authenticationFilter;
+    }
+
 }

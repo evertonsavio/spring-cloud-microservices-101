@@ -17,7 +17,6 @@ import java.util.UUID;
 @Service
 public class UsersServiceImpl implements UsersService {
 
-
     UsersRepository usersRepository;
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
