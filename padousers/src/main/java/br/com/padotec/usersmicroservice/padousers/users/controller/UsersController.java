@@ -4,7 +4,6 @@ import br.com.padotec.usersmicroservice.padousers.models.ResponseModel;
 import br.com.padotec.usersmicroservice.padousers.models.UserModel;
 import br.com.padotec.usersmicroservice.padousers.services.UsersService;
 import br.com.padotec.usersmicroservice.padousers.shared.UserDto;
-import org.apache.catalina.User;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
