@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
 
 @Configuration
 @EnableWebSecurity
@@ -28,8 +29,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable(); //Bacause we are using JWT;
-        http.authorizeRequests().antMatchers("/**").hasIpAddress(environment.getProperty("gateway.ip")) //TEMPORALLY
-        .and().addFilter(getAuthenticationFilter());
+        http.authorizeRequests().antMatchers("/**")
+                .hasIpAddress(environment.getProperty("gateway.ip"))
+                .and().cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())
+                .and().addFilter(getAuthenticationFilter());
         http.headers().frameOptions().disable(); //FOR H2 works here.
     }
 
