@@ -10,7 +10,4 @@ eureka.client.serviceUrl.defaultZone = http://localhost:8010/eureka
 spring.devtools.restart.enabled = true
 eureka.instance.instance-id=${spring.application.name}:${spring.application.instance_id:${random.value}}
 
-gateway.ip = 192.168.0.21
-gateway.ip.mac = 172.16.106.14
-token.expiration_time = 864000000
-token.secret = #*gh23848gjse03
+gateway.ip = 201.21.148.67
