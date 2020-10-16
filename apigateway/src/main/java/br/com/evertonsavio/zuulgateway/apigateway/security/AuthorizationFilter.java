@@ -1,4 +1,4 @@
-package br.com.padotec.zuulgateway.apigateway.security;
+package br.com.evertonsavio.zuulgateway.apigateway.security;
 
 import io.jsonwebtoken.Jwts;
 import org.springframework.core.env.Environment;

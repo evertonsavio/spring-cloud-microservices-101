@@ -1,4 +1,4 @@
-package br.com.padotec.zuulgateway.apigateway;
+package br.com.evertonsavio.zuulgateway.apigateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
