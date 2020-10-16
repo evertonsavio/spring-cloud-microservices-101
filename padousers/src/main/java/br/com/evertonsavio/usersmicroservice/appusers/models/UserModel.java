@@ -1,4 +1,4 @@
-package br.com.padotec.usersmicroservice.padousers.models;
+package br.com.evertonsavio.usersmicroservice.appusers.models;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;

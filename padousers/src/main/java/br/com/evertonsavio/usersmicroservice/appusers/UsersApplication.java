@@ -8,10 +8,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class PadoUsersApplication {
+public class UsersApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PadoUsersApplication.class, args);
+		SpringApplication.run(UsersApplication.class, args);
 	}
 
 	@Bean

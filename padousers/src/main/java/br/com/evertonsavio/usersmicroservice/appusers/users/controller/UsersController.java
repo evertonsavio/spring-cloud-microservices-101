@@ -1,9 +1,9 @@
-package br.com.padotec.usersmicroservice.padousers.users.controller;
+package br.com.evertonsavio.usersmicroservice.appusers.users.controller;
 
-import br.com.padotec.usersmicroservice.padousers.models.ResponseModel;
-import br.com.padotec.usersmicroservice.padousers.models.UserModel;
-import br.com.padotec.usersmicroservice.padousers.services.UsersService;
-import br.com.padotec.usersmicroservice.padousers.shared.UserDto;
+import br.com.evertonsavio.usersmicroservice.appusers.models.ResponseModel;
+import br.com.evertonsavio.usersmicroservice.appusers.models.UserModel;
+import br.com.evertonsavio.usersmicroservice.appusers.shared.UserDto;
+import br.com.evertonsavio.usersmicroservice.appusers.services.UsersService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/users")
 public class UsersController {

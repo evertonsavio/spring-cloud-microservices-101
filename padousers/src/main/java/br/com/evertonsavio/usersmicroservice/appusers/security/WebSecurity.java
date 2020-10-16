@@ -1,6 +1,6 @@
-package br.com.padotec.usersmicroservice.padousers.security;
+package br.com.evertonsavio.usersmicroservice.appusers.security;
 
-import br.com.padotec.usersmicroservice.padousers.services.UsersService;
+import br.com.evertonsavio.usersmicroservice.appusers.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -33,8 +33,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**")
                 .hasIpAddress(environment.getProperty("gateway.ip"))
                 //.antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .and()
-                .cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())
+                //.and()
+                //.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())
                 .and().addFilter(getAuthenticationFilter());
 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

@@ -1,4 +1,4 @@
-package br.com.padotec.usersmicroservice.padousers.data;
+package br.com.evertonsavio.usersmicroservice.appusers.data;
 
 import org.springframework.data.repository.CrudRepository;
 

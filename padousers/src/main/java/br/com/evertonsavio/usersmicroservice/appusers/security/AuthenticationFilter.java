@@ -1,8 +1,8 @@
-package br.com.padotec.usersmicroservice.padousers.security;
+package br.com.evertonsavio.usersmicroservice.appusers.security;
 
-import br.com.padotec.usersmicroservice.padousers.models.LoginRequestModel;
-import br.com.padotec.usersmicroservice.padousers.services.UsersService;
-import br.com.padotec.usersmicroservice.padousers.shared.UserDto;
+import br.com.evertonsavio.usersmicroservice.appusers.models.LoginRequestModel;
+import br.com.evertonsavio.usersmicroservice.appusers.services.UsersService;
+import br.com.evertonsavio.usersmicroservice.appusers.shared.UserDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -13,7 +13,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

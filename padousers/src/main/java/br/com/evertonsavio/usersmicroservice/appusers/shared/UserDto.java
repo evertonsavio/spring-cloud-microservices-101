@@ -1,4 +1,4 @@
-package br.com.padotec.usersmicroservice.padousers.shared;
+package br.com.evertonsavio.usersmicroservice.appusers.shared;
 
 import java.io.Serializable;
 

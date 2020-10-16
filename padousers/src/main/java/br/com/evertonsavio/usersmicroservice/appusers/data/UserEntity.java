@@ -1,4 +1,4 @@
-package br.com.padotec.usersmicroservice.padousers.data;
+package br.com.evertonsavio.usersmicroservice.appusers.data;
 
 import javax.persistence.*;
 import java.io.Serializable;
