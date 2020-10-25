@@ -21,4 +21,7 @@ server.port=0
 spring.application.name=users-ws
 eureka.client.serviceUrl.defaultZone = http://localhost:8010/eureka
 spring.devtools.restart.enabled = true
-```
+```  
+  
+### ERROR: RabbitMQ started but can't access management interface
+* Solution: rabbitmq-plugins enable rabbitmq_management
