@@ -26,7 +26,8 @@ public class UsersController {
 
     @GetMapping("/status")
     public String status(){
-        return "Working " + "on Port = " + env.getProperty("local.server.port");
+        return "Working " + "on Port = " + env.getProperty("local.server.port") +
+                "/ Token exp time: " + env.getProperty("token.expiration_time");
     }
 
     @PostMapping("/signup")
