@@ -24,4 +24,7 @@ spring.devtools.restart.enabled = true
 ```  
   
 ### ERROR: RabbitMQ started but can't access management interface
-* Solution: rabbitmq-plugins enable rabbitmq_management
+* Solution: rabbitmq-plugins enable rabbitmq_management  
+  
+### mappingModel List<UserDto>
+* https://www.baeldung.com/java-modelmapper-lists  
