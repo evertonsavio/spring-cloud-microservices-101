@@ -6,8 +6,11 @@ import br.com.evertonsavio.usersmicroservice.appusers.data.UsersRepository;
 import br.com.evertonsavio.usersmicroservice.appusers.models.AlbumResponseModel;
 import br.com.evertonsavio.usersmicroservice.appusers.shared.UserDto;
 import br.com.evertonsavio.usersmicroservice.appusers.services.UsersService;
+import feign.FeignException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,6 +28,8 @@ public class UsersServiceImpl implements UsersService {
     UsersRepository usersRepository;
     BCryptPasswordEncoder bCryptPasswordEncoder;
     AlbumsServiceClient albumsServiceClient;
+
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     public UsersServiceImpl(UsersRepository usersRepository,
@@ -77,9 +82,15 @@ public class UsersServiceImpl implements UsersService {
         if(userEntity == null) throw new UsernameNotFoundException("User not found");
 
         UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
-
         //FEIGN//CLIENT
-       List<AlbumResponseModel> albumlist = albumsServiceClient.getAlbums(userId);
+        List<AlbumResponseModel> albumlist = null;
+
+       try {
+           albumlist = albumsServiceClient.getAlbums(userId);
+       }catch (FeignException feignException){
+            logger.error(feignException.getLocalizedMessage());
+       }
+
        userDto.setAlbums(albumlist);
 
        return userDto;

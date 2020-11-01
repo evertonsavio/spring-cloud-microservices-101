@@ -10,8 +10,8 @@ public class UserEntity implements Serializable {
     private static final long serialVersionUID = -4631422745700177221L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long _id;
 
     @Column(nullable = false, unique = true, length = 120)
     private String email;
@@ -25,12 +25,13 @@ public class UserEntity implements Serializable {
     /////////////////////////////////////////////////////////////////////////
     ///////////////////////////GETTERS AND SETTERS///////////////////////////
 
-    public long getId() {
-        return id;
+
+    public Long get_id() {
+        return _id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void set_id(Long _id) {
+        this._id = _id;
     }
 
     public String getUserId() {
