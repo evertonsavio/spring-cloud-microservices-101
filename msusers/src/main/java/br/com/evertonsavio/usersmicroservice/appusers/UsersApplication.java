@@ -1,5 +1,6 @@
 package br.com.evertonsavio.usersmicroservice.appusers;
 
+import br.com.evertonsavio.usersmicroservice.appusers.shared.FeignErrorDecoder;
 import feign.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,5 +27,9 @@ public class UsersApplication {
 	Logger.Level feignLoggerLevel(){
 		return Logger.Level.FULL;
 	}
+	/*@Bean
+	public FeignErrorDecoder getFeignErrorDecoder(){
+		return new FeignErrorDecoder();
+	}*/
 
 }
