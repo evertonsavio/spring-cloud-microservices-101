@@ -1,5 +1,6 @@
 package br.com.evertonsavio.usersmicroservice.appusers.services.impl;
 
+import br.com.evertonsavio.usersmicroservice.appusers.data.AlbumsServiceClient;
 import br.com.evertonsavio.usersmicroservice.appusers.data.UserEntity;
 import br.com.evertonsavio.usersmicroservice.appusers.data.UsersRepository;
 import br.com.evertonsavio.usersmicroservice.appusers.shared.UserDto;
@@ -21,11 +22,16 @@ public class UsersServiceImpl implements UsersService {
 
     UsersRepository usersRepository;
     BCryptPasswordEncoder bCryptPasswordEncoder;
+    AlbumsServiceClient albumsServiceClient;
 
     @Autowired
-    public UsersServiceImpl(UsersRepository usersRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UsersServiceImpl(UsersRepository usersRepository,
+                            BCryptPasswordEncoder bCryptPasswordEncoder,
+                            AlbumsServiceClient albumsServiceClient)
+    {
         this.usersRepository = usersRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.albumsServiceClient = albumsServiceClient;
     }
 
     @Override
@@ -62,4 +68,14 @@ public class UsersServiceImpl implements UsersService {
 
         return new ModelMapper().map(userEntity, UserDto.class);
     }
+
+    @Override
+    public UserDto getUserByUserPublicId(String userId){
+        UserEntity userEntity = usersRepository.findByUserPublicId(userId);
+        if(userEntity == null) throw new UsernameNotFoundException("User not found");
+
+        UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
+        return userDto;
+    }
+
 }

@@ -1,0 +1,7 @@
+token:
+  expiration_time: 111111111
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: '{cipher}066f30f71301ca1823b0ee597893f9a2b428f969119187965a3eeb55fb764004'

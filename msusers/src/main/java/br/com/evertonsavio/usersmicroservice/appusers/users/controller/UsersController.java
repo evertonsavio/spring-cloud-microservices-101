@@ -43,4 +43,9 @@ public class UsersController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(returnUser);
     }
+
+    @GetMapping("/{userId}")
+    public UserDto getUser(@PathVariable("userId") String userId){
+        return usersService.getUserByUserPublicId(userId);
+    }
 }
