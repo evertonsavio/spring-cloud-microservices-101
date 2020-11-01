@@ -1,6 +1,9 @@
 package br.com.evertonsavio.usersmicroservice.appusers.shared;
 
+import br.com.evertonsavio.usersmicroservice.appusers.models.AlbumResponseModel;
+
 import java.io.Serializable;
+import java.util.List;
 
 public class UserDto implements Serializable {
 
@@ -10,9 +13,18 @@ public class UserDto implements Serializable {
     private String email;
     private String password;
     private String encryptedPassword;
+    private List<AlbumResponseModel> albums;
 
     ////////////////////////////////////////////////////////////////////////
     /////////////////////////GETTERS AND SETTERS////////////////////////////
+
+    public List<AlbumResponseModel> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(List<AlbumResponseModel> albums) {
+        this.albums = albums;
+    }
 
     public String getUserId() {
         return userPublicId;

@@ -3,6 +3,7 @@ package br.com.evertonsavio.usersmicroservice.appusers.services.impl;
 import br.com.evertonsavio.usersmicroservice.appusers.data.AlbumsServiceClient;
 import br.com.evertonsavio.usersmicroservice.appusers.data.UserEntity;
 import br.com.evertonsavio.usersmicroservice.appusers.data.UsersRepository;
+import br.com.evertonsavio.usersmicroservice.appusers.models.AlbumResponseModel;
 import br.com.evertonsavio.usersmicroservice.appusers.shared.UserDto;
 import br.com.evertonsavio.usersmicroservice.appusers.services.UsersService;
 import org.modelmapper.ModelMapper;
@@ -15,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -75,7 +77,12 @@ public class UsersServiceImpl implements UsersService {
         if(userEntity == null) throw new UsernameNotFoundException("User not found");
 
         UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
-        return userDto;
+
+        //FEIGN//CLIENT
+       List<AlbumResponseModel> albumlist = albumsServiceClient.getAlbums(userId);
+       userDto.setAlbums(albumlist);
+
+       return userDto;
     }
 
 }
