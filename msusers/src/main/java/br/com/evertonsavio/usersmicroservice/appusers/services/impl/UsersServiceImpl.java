@@ -83,13 +83,8 @@ public class UsersServiceImpl implements UsersService {
 
         UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
         //FEIGN//CLIENT
-        List<AlbumResponseModel> albumlist = null;
 
-       try {
-           albumlist = albumsServiceClient.getAlbums(userId);
-       }catch (FeignException feignException){
-            logger.error(feignException.getLocalizedMessage());
-       }
+        List<AlbumResponseModel> albumlist  = albumsServiceClient.getAlbums(userId);
 
        userDto.setAlbums(albumlist);
 
