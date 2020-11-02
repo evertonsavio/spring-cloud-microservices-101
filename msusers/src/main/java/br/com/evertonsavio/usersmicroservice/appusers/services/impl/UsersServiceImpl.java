@@ -84,7 +84,9 @@ public class UsersServiceImpl implements UsersService {
         UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
         //FEIGN//CLIENT
 
+        logger.info("Before calling albums Microservice");
         List<AlbumResponseModel> albumlist  = albumsServiceClient.getAlbums(userId);
+        logger.info("After calling albums Microservice");
 
        userDto.setAlbums(albumlist);
 
