@@ -95,6 +95,22 @@ docker rmi IMAGE_ID -f
 ````
 docker run -d --name rabbit-name-management -p 15672:15672 -p 5672:5672 -p 5671:5671 -e RABBITMQ_DEFAULT_USER=user –e RABBITMQ_DEFAULT_PASS=password rabbitmq:3-management
 ```
+  
+### Preparando a DOCKERFILE  ./mvnw do spring boot  
+```
+./mvnw clean
+./mvnw package
+```
+* cd target -> Voce encontrará as .jar files dispoíveis.
+  
+```
+docker build --tag=config-server --force-rm=true . 
+obs-1: Se atentar e não esquecer o ponto no final do comando.
+obs-2: dockerfile escrito em minusculo gera erro.
+docker login --username=havyx
+docker tag IMAGE_ID havyx/Docker_Hub_REPOSITORY_Name
+docker push havyx/Docker_Hub_Repository_Name
+```  
     
 ### Run Config Server Docker Container (Criar dockerfile antes of course)  
   
