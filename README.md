@@ -65,7 +65,7 @@ docker ps --all
 docker start CONTAINER
 ```
   
-* Configurar nos grubos de segurança da AWS as regras de entrada:
+* Configurar as PORTAS no grupo de segurança da AWS as regras de entrada:
 ```
 Tipo: TCP personalizado
 Protocolo: TCP
@@ -119,6 +119,8 @@ docker push havyx/Docker_Hub_Repository_Name
 ```  
 docker run -d -p 8012:8012 -e "spring.rabbitmq.host=172.17.0.2" havyx/config-server
 ```
+
+* Configurar porta 8012 na AWS para outros microservicos comunicarem com ela.
 
 * Run Eureka Docker Container
 ```
