@@ -1,3 +1,5 @@
+* sudo docker exec 2bab435b3eda rabbitmqctl status  
+  
 # Netflix API Microservice Architecture
 
 This project contains a microservice architecture for a netflix application simulator.
